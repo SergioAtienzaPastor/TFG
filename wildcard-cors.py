@@ -43,4 +43,4 @@ app.add_middleware(
 
 @app.get("/")
 async def main():
-    return {"message": "Hello Semgrep"}
+    return {"message": "Hello Ssemgrep"}
