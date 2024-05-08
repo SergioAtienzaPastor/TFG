@@ -1,10 +1,8 @@
 name: Semgrep with Docker
 
 on:
-  push:
-    branches: [ main ]  # Asegúrate de ajustar esto según tus necesidades
+  push:  # Se elimina la restricción de rama específica
   pull_request:
-    branches: [ main ]
 
 jobs:
   semgrep:
@@ -18,5 +16,6 @@ jobs:
 
     - name: Run Semgrep
       run: semgrep --config="p/r2c-ci"  # Puedes ajustar esto para usar tus propias reglas o configuraciones
+
 
 
