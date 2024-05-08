@@ -1,8 +1,8 @@
 name: Semgrep with Docker
 
 on:
-  push:  # Se elimina la restricción de rama específica
-  pull_request:
+  push:  # Se activa en cada push a cualquier rama
+  pull_request:  # Se activa en cada pull request a cualquier rama
 
 jobs:
   semgrep:
@@ -15,7 +15,7 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Run Semgrep
-      run: semgrep --config="p/r2c-ci"  # Puedes ajustar esto para usar tus propias reglas o configuraciones
+      run: semgrep --config=./rules/wildcard-cors.yaml  # Usa la ruta relativa al archivo de reglas en tu repositorio
 
 
 
