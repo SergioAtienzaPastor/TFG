@@ -1,0 +1,22 @@
+name: Semgrep with Docker
+
+on:
+  push:
+    branches: [ main ]  # Asegúrate de ajustar esto según tus necesidades
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  semgrep:
+    runs-on: ubuntu-latest
+    container:
+      image: returntocorp/semgrep:latest  # Utiliza la imagen de Docker oficial de Semgrep
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Run Semgrep
+      run: semgrep --config="p/r2c-ci"  # Puedes ajustar esto para usar tus propias reglas o configuraciones
+
+
